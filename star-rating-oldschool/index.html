@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple star rating example — done without components</title>
+    <style>
+      fieldset, label { margin: 0; padding: 0; }
+      body{ margin: 20px; }
+
+      /****** Style Star Rating Widget *****/
+
+      .rating {
+        border: none;
+        display: inline;
+        height: 1rem;
+        line-height: 1.5;
+      }
+
+      .rating > input { position: absolute; left: -9999px; }
+      .rating > label:before {
+        margin: 5px;
+        font-size: 1rem;
+        display: inline;
+        content: "\2605";
+      }
+
+      .rating > label {
+        color: #ccc;
+        float: right;
+        font-size: 0;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+
+      /***** CSS Magic to Highlight Stars on Hover *****/
+
+      .rating > input:checked ~ label, /* show highlight star when clicked */
+      .rating:not(:checked) > label:hover, /* hover current star */
+      .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+      .rating > input:checked + label:hover, /* hover current star when changing rating */
+      .rating > input:checked ~ label:hover,
+      .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+      .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+
+      /** Simple div styling  **/
+
+      div {
+        margin-bottom: 20px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>CSS Star Rating Widget</h1>
+
+    <p>Based on excellent work originally created by James Barnett — see <a href="https://codepen.io/jamesbarnett/pen/vlpkh">Pure CSS Star Rating Widget</a>.</p>
+
+    <form>
+      <div>
+        <span>Marks out of 5:</span>
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="Awesome - 5 stars">Awesome, 5 stars</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="Good - 4 stars">Good, 4 stars</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="Fair - 3 stars">Fair, 3 stars</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="Bad - 2 stars">Bad, 2 stars</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="Terrible - 1 star">Terrible, 1 star</label>
+        </fieldset>
+        <span class="clearfix"></div>
+      </div>
+      <div>
+        <button>Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
