@@ -110,14 +110,14 @@ class StarRating extends HTMLElement {
 
     // Apply custom colors if they have been set via attributes, or default colors if not
     if(this.hasAttribute('hcolor')) {
-      var hcolor = this.getAttribute('hcolor');
+      var hcolor = this.getAttribute('data-hcolor');
       style.textContent += '.rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {color:' + hcolor + ';}';
     } else {
       style.textContent += '.rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {color: #FFD700;}';
     }
 
     if(this.hasAttribute('acolor')) {
-      var acolor = this.getAttribute('acolor');
+      var acolor = this.getAttribute('data-acolor');
       style.textContent += '.rating > input:checked + label:hover, .rating > input:checked ~ label:hover, .rating > label:hover ~ input:checked ~ label, .rating > input:checked ~ label:hover ~ label {color:' + acolor + ';}';
     } else {
       style.textContent += '.rating > input:checked + label:hover, .rating > input:checked ~ label:hover, .rating > label:hover ~ input:checked ~ label, .rating > input:checked ~ label:hover ~ label {color: #FFED85;}';
