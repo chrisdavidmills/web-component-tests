@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pop-up info box — done without components</title>
+    <style>
+      .popup-wrapper {
+        position: relative;
+      }
+
+      .popup-info {
+        font-size: 0.8rem;
+        width: 200px;
+        display: inline-block;
+        border: 1px solid black;
+        padding: 10px;
+        background: white;
+        border-radius: 10px;
+        opacity: 0;
+        transition: 0.6s all;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        z-index: 3;
+      }
+
+      .popup-icon:hover + .popup-info, .popup-icon:focus + .popup-info {
+        opacity: 1;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>Pop-up info widget</h1>
+
+    <form>
+      <div>
+        <label for="cvc">Enter your CVC <span class="popup-wrapper"><span class="popup-icon" tabindex="0">?</span><span class="popup-info">Your card validation code (CVC) is an extra security feature — it is the last 3 or 4 numbers on the back of your card.</span></span></label>
+        <input type="text" id="cvc">
+      </div>
+    </form>
+
+  </body>
+</html>
